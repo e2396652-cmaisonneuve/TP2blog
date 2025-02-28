@@ -22,7 +22,10 @@ class ArticleController
     {   
         $user = new User;
         $select = $user->Select();
-        return View::render('article/create', ['users' => $select]);
+
+        $categorie = new Categorie;
+        $selectCat = $categorie->Select();
+        return View::render('article/create', ['users' => $select, 'categories' => $selectCat]);	
         
     }
 

@@ -96,4 +96,18 @@ abstract class CRUD extends \PDO
             return false;
         }
     }
+
+    final public function selectWhere($field, $value)
+    {
+        $sql = "SELECT * FROM $this->table WHERE $field = :$field";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$field", $value);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        if ($count >= 1) {
+            return $stmt->fetchAll();
+        } else {
+            return false;
+        }
+    }
 }

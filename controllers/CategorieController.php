@@ -18,6 +18,8 @@ class CategorieController
 
     public function create()
     {
+        $categorie = new Categorie;
+        $select = $categorie->Select();
         return View::render('categorie/create');
     }
 

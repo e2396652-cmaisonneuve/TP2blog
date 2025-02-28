@@ -24,7 +24,7 @@
             <label>Article
                <select name="articles_id">
                 {% for article in articles %}
-                <option value="{{ article.id}}">{{ article.name}}</option>
+                <option value="{{ article.id}}">{{ article.title}}</option>
                 {% endfor %}
                 </select>
             </label>

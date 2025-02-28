@@ -22,7 +22,10 @@ class CommentController
     {   
         $user = new User;
         $select = $user->Select();
-        return View::render('comment/create', ['users' => $select]);
+
+        $article = new Article;
+        $selectArt = $article->Select();
+        return View::render('comment/create', ['users' => $select, 'articles' => $selectArt]);	
         
     }
 
@@ -42,8 +45,8 @@ class CommentController
     public function store($data = [])
     {
         $validator = new Validator;
-        $validator->field('message', $data['content'])->required()->min(3);
-        $validator->field('date', $data['email'])->required();
+        $validator->field('message', $data['message'])->required()->min(3);
+        $validator->field('date', $data['date'])->required();
         //O QUE FAZ COM CHAVE ESTRANGEIRA?
 
         if ($validator->isSuccess()) {
