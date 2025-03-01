@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'User Create'})}}
 <div class="container">
     <form method="post">
-        <h2>New user</h2><br>
+        <h1>New user</h1><br>
         <label>Username
             <input type="text" name="username" value="{{user.username}}">
         </label>

@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'User Edit'})}}
     <div class="container">
         <form method="post">
-            <h2>Edit user</h2><br>
+            <h1>Edit user</h1>
             <label>Username
                 <input type="text" name="username" value="{{user.username}}">
             </label>

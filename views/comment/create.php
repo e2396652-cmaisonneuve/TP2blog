@@ -1,18 +1,18 @@
 {{ include('layouts/header.php', {title:'Comment Create'})}}
 <div class="container">
     <form method="post">
-        <h2>New comment</h2><br>
+        <h1>New comment</h1><br>
         <label>Message<br>
-            <textarea id="message" name="message" rows="4" cols="50" value="{{comment.message}}"></textarea>
+            <textarea id="message" name="message" rows="4" cols="70" value="{{comment.message}}"></textarea>
         </label>
         {% if errors.message is defined %}
         <span class="error"> {{errors.message}}</span>
         {% endif %}
         <label>Date
-            <input type="date" id="date" name="date" value="{{comment.date}}">
+            <input type="date" id="date" name="date">
         </label>
         {% if errors.date is defined %}
-        <span class="error"> {{errors.email}}</span>
+        <span class="error"> {{errors.date}}</span>
         {% endif %}
         <label>User
                <select name="users_id">

@@ -39,7 +39,7 @@ class CategorieController
     public function store($data = [])
     {
         $validator = new Validator;
-        $validator->field('name', $data['name'])->required()->min(3)->max(80);
+        $validator->field('name', $data['name'])->required()->max(50);
 
         if ($validator->isSuccess()) {
             $categorie = new Categorie;
@@ -71,7 +71,7 @@ class CategorieController
     public function update($data = [], $get = [])
     {
         $validator = new Validator;
-        $validator->field('name', $data['name'])->min(3)->max(80);
+        $validator->field('name', $data['name'])->max(50);
 
         if ($validator->isSuccess()) {
             $categorie = new Categorie;

@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Comment Edit'})}}
     <div class="container">
         <form method="post">
-            <h2>Edit comment</h2><br>
+            <h1>Edit comment</h1>
             <label>Message<br>
             <textarea id="message" name="message" rows="4" cols="50" value="{{comment.message}}">{{comment.message}}</textarea>
         </label>
@@ -11,14 +11,14 @@
         <label>User
                <select name="users_id">
                 {% for user in users %}
-                <option value="{{ user.id}}" {%if users.id == user.users_id %}selected {% endif %} >{{ user.name}}</option>
+                <option value="{{ user.id}}" {%if user.id == user.users_id %}selected {% endif %} >{{ user.name}}</option>
                 {% endfor %}
                 </select>
             </label>
             <label>Article
                <select name="articles_id">
                 {% for article in articles %}
-                <option value="{{ article.id}}">{{ article.title}}</option>
+                <option value="{{ article.id}}" {%if article.id == article.articles_id %}selected {% endif %} >{{ article.title}}</option>
                 {% endfor %}
                 </select>
             </label>

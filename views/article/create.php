@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Article Create'})}}
 <div class="container">
     <form method="post">
-        <h2>New article</h2><br>
+    <h1>New article</h1>
         <label>Title
             <input type="text" name="title" value="{{article.title}}">
         </label>

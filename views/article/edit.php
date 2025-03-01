@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Article Edit'})}}
 <div class="container">
     <form method="post">
-        <h2>Edit ARTICLE</h2><br>
+    <h1>Edit Article</h1>
         <label>Title
             <input type="text" name="title" value="{{article.title}}">
         </label>
@@ -17,14 +17,14 @@
         <label>User
                <select name="users_id">
                 {% for user in users %}
-                <option value="{{ user.id}}" {%if users.id == user.users_id %}selected {% endif %} >{{ user.name}}</option>
+                <option value="{{ user.id}}">{{ user.name}}</option>
                 {% endfor %}
                 </select>
             </label>
             <label>Categorie
                <select name="categories_id">
                 {% for categorie in categories %}
-                <option value="{{ categorie.id}}" {%if users.id == categorie.categories_id %}selected {% endif %} >{{ categorie.name}}</option>
+                <option value="{{ categorie.id}}">{{ categorie.name}}</option>
                 {% endfor %}
                 </select>
             </label>

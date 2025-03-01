@@ -45,8 +45,8 @@ class ArticleController
     public function store($data = [])
     {
         $validator = new Validator;
-        $validator->field('title', $data['title'])->min(3)->max(80);
-        $validator->field('content', $data['content'])->min(3);
+        $validator->field('title', $data['title'])->min(5)->max(80);
+        $validator->field('content', $data['content'])->min(5);
         $validator->field('date', $data['date'])->required();
 
         if ($validator->isSuccess()) {
@@ -59,7 +59,12 @@ class ArticleController
             }
         } else {
             $errors = $validator->getErrors();
-            return View::render('article/create', ['errors' => $errors, 'article' => $data]);
+            $user = new User;
+            $select = $user->Select();
+    
+            $categorie = new Categorie;
+            $selectCat = $categorie->Select();
+            return View::render('article/create', ['errors' => $errors, 'article' => $data, 'users' => $select, 'categories' => $selectCat]);
         }
     }
 
@@ -83,8 +88,8 @@ class ArticleController
     public function update($data = [], $get = [])
     {
         $validator = new Validator;
-        $validator->field('title', $data['title'])->min(3)->max(80);
-        $validator->field('content', $data['content'])->min(3);
+        $validator->field('title', $data['title'])->min(5)->max(80);
+        $validator->field('content', $data['content'])->min(5);
         $validator->field('date', $data['date'])->required();
 
         if ($validator->isSuccess()) {

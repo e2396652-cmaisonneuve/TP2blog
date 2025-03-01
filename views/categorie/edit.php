@@ -1,7 +1,7 @@
 {{ include('layouts/header.php', {title:'Categorie Edit'})}}
 <div class="container">
     <form method="post">
-        <h2>Edit categorie</h2><br>
+        <h1>Edit categorie</h1>
         <label>Name
             <input type="text" name="name" value="{{categorie.name}}">
         </label>

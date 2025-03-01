@@ -47,7 +47,7 @@ class CommentController
         $validator = new Validator;
         $validator->field('message', $data['message'])->required()->min(3);
         $validator->field('date', $data['date'])->required();
-        //O QUE FAZ COM CHAVE ESTRANGEIRA?
+
 
         if ($validator->isSuccess()) {
             $comment = new comment;
@@ -59,7 +59,12 @@ class CommentController
             }
         } else {
             $errors = $validator->getErrors();
-            return View::render('comment/create', ['errors' => $errors, 'comment' => $data]);
+            $user = new User;
+            $select = $user->Select();
+    
+            $article = new Article;
+            $selectArt = $article->Select();
+            return View::render('comment/create', ['errors' => $errors, 'comment' => $data, 'users' => $select, 'articles' => $selectArt]);
         }
     }
 
