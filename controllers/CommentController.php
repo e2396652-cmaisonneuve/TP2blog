@@ -68,9 +68,13 @@ class CommentController
         if (isset($data['id']) && $data['id'] != null) {
             $comment = new comment;
             if ($selectId = $comment->selectId($data['id'])) {
-                return View::render('comment/edit', ['comment' => $selectId]);
+                $user = new User;
+                $select = $user->Select();
+                $article = new Article;
+                $selectArt = $article->Select();
+                return View::render('comment/edit', ['comment' => $selectId,'users' => $select, 'articles' => $selectArt]);
             } else {
-                return View::render('error', ['msg' => "comment doesn't exist"]);
+                return View::render('error', ['msg' => 'Comment doesnt exist']);
             }
         }
         return View::render('error');
@@ -79,8 +83,8 @@ class CommentController
     public function update($data = [], $get = [])
     {
         $validator = new Validator;
-        $validator->field('message', $data['content'])->required()->min(3);
-        $validator->field('date', $data['email'])->required();
+        $validator->field('message', $data['message'])->min(3);
+        $validator->field('date', $data['date'])->required();
 
         if ($validator->isSuccess()) {
             $comment = new comment;

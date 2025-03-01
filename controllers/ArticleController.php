@@ -68,7 +68,11 @@ class ArticleController
         if (isset($data['id']) && $data['id'] != null) {
             $article = new article;
             if ($selectId = $article->selectId($data['id'])) {
-                return View::render('article/edit', ['article' => $selectId]);
+                $user = new User;
+                $select = $user->Select();
+                $categorie = new Categorie;
+                $selectCat = $categorie->Select();
+                return View::render('article/edit', ['article' => $selectId,'users' => $select, 'categories' => $selectCat]);
             } else {
                 return View::render('error', ['msg' => 'Article doesnt exist']);
             }

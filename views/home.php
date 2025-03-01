@@ -22,6 +22,7 @@
       <div class="comment-info"><small>{{comment.name}} on {{comment.date}}</small></div>
     </div>
     {% endfor %}
+    <div class="comment-text"><small><h3><a href="{{base}}/comment/create">Join the conversation! Leave a comment.</a></small></p></div>
 
   </div>
   {% else %}
