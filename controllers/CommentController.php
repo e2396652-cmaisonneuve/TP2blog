@@ -36,7 +36,7 @@ class CommentController
             if ($selectId = $comment->selectId($data['id'])) {
                 return View::render('comment/show', ['comment' => $selectId]);
             } else {
-                return View::render('error', ['msg' => 'Comment doesn t exist']);
+                return View::render('error', ['msg' => "Comment doesn't exist"]);
             }
         }
         return View::render('error');
@@ -79,7 +79,7 @@ class CommentController
                 $selectArt = $article->Select();
                 return View::render('comment/edit', ['comment' => $selectId,'users' => $select, 'articles' => $selectArt]);
             } else {
-                return View::render('error', ['msg' => 'Comment doesnt exist']);
+                return View::render('error', ['msg' => "Comment doesn't exist"]);
             }
         }
         return View::render('error');

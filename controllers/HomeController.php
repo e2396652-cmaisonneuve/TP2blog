@@ -39,9 +39,6 @@ class HomeController
            
             $row['comments'] = $com;
         }
-
-        //  print_r($select);
-        //  die();
         
         return View::render('home', ['articles' => $select]);
     }

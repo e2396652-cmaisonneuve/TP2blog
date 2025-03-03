@@ -28,7 +28,7 @@ class UserController
             if ($selectId = $user->selectId($data['id'])) {
                 return View::render('user/show', ['user' => $selectId]);
             } else {
-                return View::render('error', ['msg' => 'user doesn t exist']);
+                return View::render('error', ['msg' => "User doesn't exist"]);
             }
         }
         return View::render('error');
@@ -38,7 +38,7 @@ class UserController
     {
         $validator = new Validator;
         $validator->field('username', $data['username'])->min(3)->max(25);
-        $validator->field('password', $data['password'])->max(45);
+        $validator->field('password', $data['password'])->required()->max(45);
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
 
@@ -73,7 +73,7 @@ class UserController
     {
         $validator = new Validator;
         $validator->field('username', $data['username'])->min(3)->max(25);
-        $validator->field('password', $data['password'])->max(45);
+        $validator->field('password', $data['password'])->required()->max(45);
         $validator->field('name', $data['name'])->min(3)->max(25);
         $validator->field('email', $data['email'])->required()->max(45)->email();
 
@@ -87,7 +87,6 @@ class UserController
             }
         } else {
             $errors = $validator->getErrors();
-            //print_r($errors);
             return View::render('user/edit', ['errors' => $errors, 'user' => $data]);
         }
     }

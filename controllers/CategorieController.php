@@ -30,7 +30,7 @@ class CategorieController
             if ($selectId = $categorie->selectId($data['id'])) {
                 return View::render('categorie/show', ['categorie' => $selectId]);
             } else {
-                return View::render('error', ['msg' => 'categorie doesn t exist']);
+                return View::render('error', ['msg' => "Categorie doesn't exist"]);
             }
         }
         return View::render('error');

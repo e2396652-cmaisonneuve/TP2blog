@@ -36,7 +36,7 @@ class ArticleController
             if ($selectId = $article->selectId($data['id'])) {
                 return View::render('article/show', ['article' => $selectId]);
             } else {
-                return View::render('error', ['msg' => 'Article doesn t exist']);
+                return View::render('error', ['msg' => "Article doesn't exist"]);
             }
         }
         return View::render('error');
@@ -79,7 +79,7 @@ class ArticleController
                 $selectCat = $categorie->Select();
                 return View::render('article/edit', ['article' => $selectId,'users' => $select, 'categories' => $selectCat]);
             } else {
-                return View::render('error', ['msg' => 'Article doesnt exist']);
+                return View::render('error', ['msg' => "Article doesn't exist"]);
             }
         }
         return View::render('error');
